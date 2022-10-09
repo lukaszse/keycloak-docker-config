@@ -20,6 +20,6 @@ RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysi
 ENV KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
 ENV KC_DB_USERNAME=keycloak
 ENV KC_DB_PASSWORD=Passw0rd
-ENV KC_HOSTNAME=localhost
+ENV KC_HOSTNAME=37.233.102.95
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
