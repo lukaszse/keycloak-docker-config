@@ -14,6 +14,8 @@ services:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: Passw0rd
+    ports:
+      -5432:5432
   keycloak:
     build: .
     restart: unless-stopped
