@@ -6,7 +6,7 @@ volumes:
 
 services:
   postgres:
-    image: postgres:latest
+    image: docker.io/library/postgres:latest
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
