@@ -24,4 +24,3 @@ services:
       - 8445:8443
     depends_on:
       - postgres
-    command: start-dev
