@@ -22,7 +22,8 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres 
     ports:
-      - 8445:8443
+      - 8443:8443
     depends_on:
       - postgres
