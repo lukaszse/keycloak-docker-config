@@ -22,4 +22,4 @@ ENV KC_DB_USERNAME=admin
 ENV KC_DB_PASSWORD=Passw0rd
 ENV KC_HOSTNAME=localhost
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
