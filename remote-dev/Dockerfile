@@ -17,9 +17,9 @@ WORKDIR /opt/keycloak
 RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server" -alias server -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -keystore conf/server.keystore
 
 # Change these values to point to a running postgres instance
-RUN export KC_HOSTNAME=$(ip a s eth0 | awk '/inet / {print$2}' | cut -d/ -f1)
 ENV KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
 ENV KC_DB_USERNAME=keycloak
 ENV KC_DB_PASSWORD=Passw0rd
+ENV KC_HOSTNAME=37.233.102.95
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
