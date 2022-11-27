@@ -13,8 +13,7 @@ FROM quay.io/keycloak/keycloak:latest
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
-# For demonstration purposes only, please make sure to use proper certificates in production instead
-RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server" -alias server -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -keystore conf/server.keystore
+RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server, O=Uniwersyste Slaski, l=Sosnowiec, c=Poland" -alias server -ext "SAN:c=DNS:ubuntudev.llseremak.p5.tiktalik.io,IP:37.233.102.95" -keystore conf/server.keystore
 
 # Change these values to point to a running postgres instance
 ENV KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
