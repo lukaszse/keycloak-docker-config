@@ -13,7 +13,7 @@ FROM quay.io/keycloak/keycloak:latest
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 WORKDIR /opt/keycloak
 
-RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=Keycloak server, O=Uniwersyste Slaski, L=Sosnowiec, C=Poland" -alias server -ext "SAN:c=DNS:ubuntudev.llseremak.p5.tiktalik.io,IP:37.233.102.95" -keystore conf/server.keystore changeit -startdate "2022/11/19 00:00:00" -validity 365
+RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=Keycloak, O=UŚ, L=Sosnowiec, C=Poland" -alias server -ext "SAN:c=DNS:ubuntudev.llseremak.p5.tiktalik.io,IP:37.233.102.95" -keystore conf/server.keystore changeit -startdate "2022/11/19 00:00:00" -validity 365
 
 # Change these values to point to a running postgres instance
 ENV KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
