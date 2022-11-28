@@ -1,11 +1,10 @@
 version: '3.7'
 
 volumes:
-  postgres_data:
-    driver: local
-  cert:
-    - ./certs/fullchain.pem:/etc/x509/https/tls.crt
-    - ./certs/privkey.pem:/etc/x509/https/tls.key
+  # postgres_data:
+  #   driver: local
+  - ./certs/fullchain.pem:/etc/x509/https/tls.crt
+  - ./certs/privkey.pem:/etc/x509/https/tls.key
 
 services:
   postgres:
