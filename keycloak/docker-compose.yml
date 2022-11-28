@@ -22,4 +22,4 @@ services:
       - 443:8443
     depends_on:
       - postgres
-    command: start --db-url-host postgres --db-url-database keycloak --db-username keycloak --hostname ubuntudev.llseremak.p5.tiktalik.io --db-password Passw0rd --https-certificate-file=./cert/fullchain.pem --https-certificate-key-file=./cert/privkey.pem
+    command: start --https-certificate-file=cert/fullchain.pem --https-certificate-key-file=cert/privkey.pem --db-url-host postgres --db-url-database keycloak --db-username keycloak --hostname ubuntudev.llseremak.p5.tiktalik.io --db-password Passw0rd
