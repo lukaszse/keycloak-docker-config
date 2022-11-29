@@ -19,7 +19,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
-      - 443:8443
+      - 443:8080
     depends_on:
       - postgres
-    command: start --db-url-host postgres --db-url-database keycloak --db-username keycloak --hostname ubuntudev.llseremak.p5.tiktalik.io --db-password Passw0rd --https-certificate-file=/etc/letsencrypt/live/ubuntudev.llseremak.p5.tiktalik.io/fullchain.pem --https-certificate-key-file=/etc/letsencrypt/live/ubuntudev.llseremak.p5.tiktalik.io/privkey.pem
+    command: start --db-url-host postgres --db-url-database keycloak --db-username keycloak --hostname ubuntudev.llseremak.p5.tiktalik.io --db-password Passw0rd --proxy=edge
