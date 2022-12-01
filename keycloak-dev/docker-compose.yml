@@ -6,25 +6,21 @@ volumes:
 
 services:
   postgres:
-    image: docker.io/library/postgres:latest
-    restart: unless-stopped
+    image: postgres:latest
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: Passw0rd
-    ports:
-      - 5432:5432
   keycloak:
-    build: .
-    restart: unless-stopped
+    image: quay.io/keycloak/keycloak:latest
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_DB: postgres 
     ports:
-      - 443:8443
       - 80:8080
+      - 443:8443
     depends_on:
       - postgres
+    command: start-dev --db-url-host postgres --db-url-database keycloak --db-username keycloak
